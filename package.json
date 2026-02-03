@@ -1,0 +1,21 @@
+{
+  "name": "practicas",
+  "version": "1.0.0",
+  "description": "Archivos creados (ejecuta con `npx ts-node <archivo>`): - `01-variables.ts`: variables, enums y tipos personalizados. - `02-funciones.ts`: funciones tipadas, parámetros opcionales y callbacks. - `03-poo.ts`: clases, herencia, métodos estáticos y encapsulación. - `04-arreglos.ts`: recorridos y transformaciones con `for`, `forEach`, `map`, `filter`, `reduce`. - `05-arreglos-objetos.ts`: operaciones comunes sobre arreglos de objetos. - `06-integracion-api.ts`: consumo de una API REST y pintado de resultados en consola.",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run ts -- 01-variables.ts",
+    "ts": "ts-node",
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@types/node": "^25.2.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}
