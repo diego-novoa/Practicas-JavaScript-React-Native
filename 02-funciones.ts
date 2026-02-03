@@ -1,5 +1,6 @@
 // Clase 2: Funciones y parámetros en TypeScript.
 // Ejecuta con: `npx ts-node 02-funciones.ts`
+// Tip: tipar parámetros y retornos evita sorpresas cuando cambias la implementación.
 
 function saludar(persona: string, saludo: string = 'Hola'): string {
   return `${saludo}, ${persona}!`;
@@ -28,3 +29,8 @@ console.log('Cuadrados:', alCuadrado);
 // - Implementa sobrecarga para una función `formatear(valor: string | number)`.
 // - Cambia `procesarLista` para recibir `Promise<number>[]` y usar `Promise.all`.
 
+// Notas rápidas:
+// - Parámetro con valor por defecto: `saludo = 'Hola'` evita pasar siempre ese arg.
+// - Función flecha con tipo explícito en retorno: `(): number =>`.
+// - Parámetro opcional `mensaje?: string` puede ser `undefined`; por eso usamos `??`.
+// - Función de orden superior: `procesarLista` recibe otra función (`transformador`) y la aplica con `map`.

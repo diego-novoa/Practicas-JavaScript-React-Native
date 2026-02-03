@@ -1,6 +1,7 @@
 // Clase 1: Variables y tipos en TypeScript.
 // Ejecuta con: `npx ts-node 01-variables.ts`
 // Objetivo: repasar declaraciones, tipos primitivos, enums y tipos personalizados.
+// Tip: en TS no existe `var`; usa `const` cuando no reasignas y `let` cuando planeas cambiar el valor.
 
 const nombre: string = 'Ada';
 let edad: number = 32;
@@ -27,3 +28,9 @@ console.log({ nombre, edad, esActivo, hobbies, tuplaEjemplo, rolActual, coordena
 // - Declara una variable `unknown` y fuerza un casting seguro.
 // - Crea tu propio `enum` de estados de pedido y úsalo en un tipo personalizado.
 
+// Notas rápidas:
+// - string/number/boolean: tipos primitivos base.
+// - Array tipado: `string[]` asegura que todos los elementos sean texto.
+// - Tupla: `[string, number]` define cantidad y tipo exactos por posición.
+// - enum: colección de constantes con nombre; evita "magic strings" al representar roles/estados.
+// - type alias: `type Punto = ...` te permite dar nombre a un shape de objeto y reutilizarlo.

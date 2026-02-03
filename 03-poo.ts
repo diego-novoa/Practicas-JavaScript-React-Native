@@ -1,7 +1,9 @@
 // Clase 3: Programación Orientada a Objetos (POO) en TypeScript.
 // Ejecuta con: `npx ts-node 03-poo.ts`
+// Conceptos clave: clases, herencia, modificadores de acceso (`public`, `private`, `protected`), métodos estáticos y `readonly`.
 
 class Persona {
+  // `private` oculta la propiedad fuera de la clase; `protected` permite uso en clases hijas.
   constructor(private nombre: string, protected edad: number) {}
 
   presentarse(): string {
@@ -10,11 +12,12 @@ class Persona {
 }
 
 class Empleado extends Persona {
+  // `readonly` solo se asigna en el constructor; después no puede mutar.
   readonly id: string;
 
   constructor(nombre: string, edad: number, private cargo: string, private salario: number) {
-    super(nombre, edad);
-    this.id = crypto.randomUUID();
+    super(nombre, edad); // llama al constructor de Persona
+    this.id = crypto.randomUUID(); // genera un identificador único
   }
 
   describirTrabajo(): string {
@@ -26,6 +29,7 @@ class Empleado extends Persona {
   }
 
   static desdeObjeto(data: { nombre: string; edad: number; cargo: string; salario: number }): Empleado {
+    // Método estático: se invoca sobre la clase (Empleado.desdeObjeto), no sobre una instancia.
     return new Empleado(data.nombre, data.edad, data.cargo, data.salario);
   }
 }
@@ -51,3 +55,9 @@ console.log('Creado con método estático ->', desdeJson.describirTrabajo());
 // - Crea una clase `Gerente` que extienda Empleado y sobreescriba `describirTrabajo`.
 // - Añade getters/setters para salario con validaciones.
 
+// Notas rápidas:
+// - Usa clases cuando quieres encapsular estado + comportamiento.
+// - Herencia (`extends`) reutiliza código y permite especializar comportamiento.
+// - Prefiere `private` para datos internos y `public`/métodos para exponer solo lo necesario.
+// - Métodos estáticos son helpers/fábricas que no dependen de una instancia creada.
+// - `readonly` protege propiedades que no deberían cambiar durante la vida del objeto.
