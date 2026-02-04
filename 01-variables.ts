@@ -25,7 +25,12 @@ console.log({ nombre, edad, esActivo, hobbies, tuplaEjemplo, rolActual, coordena
 
 // Variantes para practicar:
 // - Cambia `edad` a readonly usando `const` y observa el error al reasignar.
+
+const edad: number = 25;
+console.log("edad");
+
 // - Declara una variable `unknown` y fuerza un casting seguro.
+
 // - Crea tu propio `enum` de estados de pedido y úsalo en un tipo personalizado.
 
 // Notas rápidas:
