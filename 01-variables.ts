@@ -31,7 +31,33 @@ console.log("edad");
 
 // - Declara una variable `unknown` y fuerza un casting seguro.
 
+let valor: unknown;
+valor = "Hola mundo";
+
+if (typeof valor === "string") {
+  const texto = valor as string;
+  console.log(texto.toUpperCase());
+}
+
+function esNumero(dato: unknown): dato is number {
+  return typeof dato === "number";
+}
+
+let dato: unknown = 42;
+if (esNumero(dato)) {
+  // Aquí TypeScript sabe que es number
+  console.log(dato.toFixed(2));
+}
 // - Crea tu propio `enum` de estados de pedido y úsalo en un tipo personalizado.
+
+enum EstadoPedido {
+  Pendiente = "PENDIENTE",
+  Pagado = "PAGADO",
+  Enviado = "ENVIADO",
+  Entregado = "ENTREGADO",
+  Cancelado = "CANCELADO"
+}
+
 
 // Notas rápidas:
 // - string/number/boolean: tipos primitivos base.
