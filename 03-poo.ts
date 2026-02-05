@@ -52,8 +52,24 @@ console.log('Creado con método estático ->', desdeJson.describirTrabajo());
 
 // Variantes:
 // - Implementa una interfaz `Trabajable` con `asignarTarea()` y haz que Empleado la implemente.
+
+https://www.youtube.com/watch?v=I4o7fvSQvBA&list=PLQxX2eiEaqbwNP20GMMCjRslRq2lOLWlg&index=10
+https://www.youtube.com/watch?v=hfwtzjOhvKk&list=PLQxX2eiEaqbwNP20GMMCjRslRq2lOLWlg&index=11
+
+
+
 // - Crea una clase `Gerente` que extienda Empleado y sobreescriba `describirTrabajo`.
+
+https://www.youtube.com/watch?v=tcza2FEz4u4&list=PLQxX2eiEaqbwNP20GMMCjRslRq2lOLWlg
+https://www.youtube.com/watch?v=q9gZ9fjKIC0&list=PLQxX2eiEaqbwNP20GMMCjRslRq2lOLWlg&index=2
+https://www.youtube.com/watch?v=pXX3c8BloY0&list=PLQxX2eiEaqbwNP20GMMCjRslRq2lOLWlg&index=3
+https://www.youtube.com/watch?v=fdfXkiuVHp4&list=PLQxX2eiEaqbwNP20GMMCjRslRq2lOLWlg&index=4
+
 // - Añade getters/setters para salario con validaciones.
+
+https://www.youtube.com/watch?v=fdfXkiuVHp4&list=PLQxX2eiEaqbwNP20GMMCjRslRq2lOLWlg&index=4
+https://www.youtube.com/watch?v=ZHK0t5gocjA&list=PLQxX2eiEaqbwNP20GMMCjRslRq2lOLWlg&index=5
+
 
 // Notas rápidas:
 // - Usa clases cuando quieres encapsular estado + comportamiento.
