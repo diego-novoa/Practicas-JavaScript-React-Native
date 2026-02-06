@@ -4,6 +4,7 @@ class Persona{
   documento:number = 80547597;
   nombre: string = "diego novoa";
   edad: number = 44;
+   
   
   //constructor sin parametros//
 
