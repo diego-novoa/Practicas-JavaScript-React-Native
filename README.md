@@ -1,5 +1,8 @@
 # Ruta rápida de práctica TypeScript + Node
 
+<img width="1004" height="250" alt="ts-lettermark-blue" src="https://github.com/user-attachments/assets/aaac637b-dd78-4342-92f0-0f041775eda3" />
+
+
 Archivos creados (ejecuta con `npx ts-node <archivo>`):
 - `01-variables.ts`: variables, enums y tipos personalizados.
 - `02-funciones.ts`: funciones tipadas, parámetros opcionales y callbacks.
