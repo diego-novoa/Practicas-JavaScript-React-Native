@@ -52,23 +52,50 @@ console.log('Creado con método estático ->', desdeJson.describirTrabajo());
 
 // Variantes:
 // - Implementa una interfaz `Trabajable` con `asignarTarea()` y haz que Empleado la implemente.
-
-https://www.youtube.com/watch?v=I4o7fvSQvBA&list=PLQxX2eiEaqbwNP20GMMCjRslRq2lOLWlg&index=10
-https://www.youtube.com/watch?v=hfwtzjOhvKk&list=PLQxX2eiEaqbwNP20GMMCjRslRq2lOLWlg&index=11
-
-
-
 // - Crea una clase `Gerente` que extienda Empleado y sobreescriba `describirTrabajo`.
-
-https://www.youtube.com/watch?v=tcza2FEz4u4&list=PLQxX2eiEaqbwNP20GMMCjRslRq2lOLWlg
-https://www.youtube.com/watch?v=q9gZ9fjKIC0&list=PLQxX2eiEaqbwNP20GMMCjRslRq2lOLWlg&index=2
-https://www.youtube.com/watch?v=pXX3c8BloY0&list=PLQxX2eiEaqbwNP20GMMCjRslRq2lOLWlg&index=3
-https://www.youtube.com/watch?v=fdfXkiuVHp4&list=PLQxX2eiEaqbwNP20GMMCjRslRq2lOLWlg&index=4
-
 // - Añade getters/setters para salario con validaciones.
 
-https://www.youtube.com/watch?v=fdfXkiuVHp4&list=PLQxX2eiEaqbwNP20GMMCjRslRq2lOLWlg&index=4
-https://www.youtube.com/watch?v=ZHK0t5gocjA&list=PLQxX2eiEaqbwNP20GMMCjRslRq2lOLWlg&index=5
+interface AsignarTarea {
+  tarea: string;
+}
+
+class Persona {
+
+  documento: number = 80547597;
+  nombre: string = "diego novoa";
+  edad: number = 44;
+  salario: number = 50000;
+
+  public constructor(documento: number, nombre: string, edad: number, salario: number) {
+    this.documento = documento;
+    this.nombre = nombre;
+    this.edad = edad;
+    this.setSalario(salario);
+  }
+
+  public setSalario(valor: number): void {
+    if (valor <= 0) {
+      throw new Error("El salario debe ser mayor que 0");
+    }
+    this.salario = valor;
+  }
+}
+
+class Gerente extends Persona {
+  public sueldoGerente(): number {
+    return this.salario * 1.5;
+  }
+}
+
+class Empleado extends Persona implements AsignarTarea {
+
+  tarea: string = "";
+
+  public sueldoEmpleado(): number {
+    return this.salario;
+  }
+}
+
 
 
 // Notas rápidas:
