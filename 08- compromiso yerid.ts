@@ -1,24 +1,3 @@
-//ejercicio 1 varibles
-
-// Variantes para practicar:
-// - Cambia `edad` a readonly usando `const` y observa el error al reasignar.
-// - Declara una variable `unknown` y fuerza un casting seguro.
-// - Crea tu propio `enum` de estados de pedido y úsalo en un tipo personalizado.
-
-// ejercicio 2 funsiones 
-
-// Variantes:
-// - Agrega un parámetro rest `...extras` y suma todos los argumentos.
-// - Implementa sobrecarga para una función `formatear(valor: string | number)`.
-// - Cambia `procesarLista` para recibir `Promise<number>[]` y usar `Promise.all`.
-
-// ejercicio 3 poo
-
-// Variantes:
-// - Implementa una interfaz `Trabajable` con `asignarTarea()` y haz que Empleado la implemente.
-// - Crea una clase `Gerente` que extienda Empleado y sobreescriba `describirTrabajo`.
-// - Añade getters/setters para salario con validaciones.
-
 interface AsignarTarea {
   tarea: string;
 }

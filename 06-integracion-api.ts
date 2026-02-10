@@ -39,6 +39,113 @@ main();
 
 // Variantes:
 // - Cambia el endpoint a `/users` y muestra nombre, correo y compañía.
+
+//const users{
+  //nombre: string;
+  //correo: string;
+  //compania: string;
+
+  //async function obtenerNombres(nombre: string = "default"): Promise<string[]> {
+    //return [nombre];
+  //}//
+  //async function obtenerCorreo(correo: string = "default"): Promise<string[]> {
+    //return [correo];
+  //}//
+  //async function obtenerCompañia(compania: string = "default"): Promise<string[]> {
+    //return [compania];
+  //}//
+
+//}//
+
+interface Company {
+  name: string;
+}
+
+interface User {
+  name: string;
+  email: string;
+  company?: Company;
+}
+
+async function getUsers() {
+  const response = await fetch('/users');
+  const users: User[] = await response.json();
+
+  return users.map(user => ({
+    nombre: user.name,
+    correo: user.email,
+    compania: user.company?.name ?? ''
+  }));
+}
+
+
 // - Reemplaza `fetch` por Axios y tipa la respuesta con `axios.get<Post[]>`.
+
+import axios from 'axios';
+
+interface Company {
+  name: string;
+}
+interface User {
+  name: string;
+  email: string;
+  company?: Company;
+}
+async function getUsers(): {
+  const { data } = await axios.get<User[]>('/users');
+
+  return data.map(user => ({
+    nombre: user.name,
+    correo: user.email,
+    compania: user.company?.name ?? ''
+  }));
+}
+
 // - Encadena otro `fetch` usando el `userId` para obtener datos del autor.
+
+interface Company {
+  name: string;
+}
+
+interface User {
+  id: number;
+  name: string;
+  email: string;
+  company?: Company;
+}
+
+interface Author {
+  id: number;
+  username: string;
+  bio: string;
+}
+
+async function getUsersWithAuthor() {
+  const usersResponse = await fetch('/users');
+  const users: User[] = await usersResponse.json();
+
+  const result = await Promise.all(
+    users.map(async (user) => {
+      const authorResponse = await fetch(`/authors/${user.id}`);
+      const author: Author = await authorResponse.json();
+
+      return {
+        nombre: user.name,
+        correo: user.email,
+        compania: user.company?.name ?? '',
+        autor: {
+          username: author.username,
+          bio: author.bio
+        }
+      };
+    })
+  );
+
+  return result;
+}
+ 
+getUsersWithAuthor()
+  .then(data => console.log(data))
+  .catch(err => console.error(err));
+
 
