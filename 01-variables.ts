@@ -25,9 +25,31 @@ console.log({ nombre, edad, esActivo, hobbies, tuplaEjemplo, rolActual, coordena
 
 // Variantes para practicar:
 // - Cambia `edad` a readonly usando `const` y observa el error al reasignar.
-// - Declara una variable `unknown` y fuerza un casting seguro.
-// - Crea tu propio `enum` de estados de pedido y úsalo en un tipo personalizado.
+const persona: Readonly<{ edad: number }> = { edad: 32 };
+persona.edad = 33; // Error: no se puede reasignar a una propiedad readonly.
 
+// - Declara una variable `unknown` y fuerza un casting seguro.
+
+let valor: unknown = '¡Hola, mundo!';
+if (typeof valor === 'string') {
+  const texto = valor as string; 
+  console.log(texto.toUpperCase());
+}
+// - Crea tu propio `enum` de estados de pedido y úsalo en un tipo personalizado.
+let estadoPedido: EstadoPedido = EstadoPedido.Enviado;
+enum EstadoPedido {
+  Pendiente = 'PENDIENTE',
+  Enviado = 'ENVIADO',    
+  Entregado = 'ENTREGADO',
+  Cancelado = 'CANCELADO',
+}
+
+type Pedido = {
+  id: number;
+  estado: EstadoPedido;
+};
+const nuevoPedido: Pedido = { id: 123, estado: EstadoPedido.Pendiente };
+  
 // Notas rápidas:
 // - string/number/boolean: tipos primitivos base.
 // - Array tipado: `string[]` asegura que todos los elementos sean texto.
