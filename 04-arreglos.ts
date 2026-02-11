@@ -30,6 +30,19 @@ console.log(total);
 
 // Variantes:
 // - Usa `some` y `every` para validar condiciones.
+
+const tieneAlMenosUnPar = numeros.some(n => n % 2 === 0);
+console.log('\n¿Tiene al menos un número par?', tieneAlMenosUnPar);
+
+const todosSonPares = numeros.every(n => n % 2 === 0);
+console.log('\n¿Todos son pares?', todosSonPares);
+
 // - Combina `map` + `filter` en una sola cadena para mantener inmutabilidad.
+const doblesPares = numeros
+  .map(n => n * 2)
+  .filter(n => n % 2 === 0);
+console.log('\nDobles que son pares:', doblesPares);  
 // - Cambia `reduce` para calcular el promedio.
+const promedio = numeros.reduce((acc, n) => acc + n, 0) / numeros.length;
+console.log('\nPromedio:', promedio); 
 
