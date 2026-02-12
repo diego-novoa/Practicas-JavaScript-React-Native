@@ -31,3 +31,16 @@ console.log('\nCurso con id=2:', encontrado);
 // - Usa `reduce` para agrupar por estado `publicado`.
 // - Añade un campo `categoria` y filtra por ella.
 
+var titulosString = cursos.map((c) => c.titulo);
+
+for (const c of cursos) {
+  console.log(c.titulo);
+}
+
+cursos.push(
+  { id: 4, titulo: 'Angular desde cero', horas: 12, publicado: true },
+  { id: 5, titulo: 'Angular desde cero', horas: 12, publicado: true }
+);
+
+console.log(cursos);
+

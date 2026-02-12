@@ -1,12 +1,17 @@
 // Clase 4: Recorrido y transformación de arreglos.
 // Ejecuta con: `npx ts-node 04-arreglos.ts`
 
+// 0, 1, 2, 3, 4
 const numeros = [1, 2, 3, 4, 5];
 
 console.log('Recorrido clásico:');
 for (let i = 0; i < numeros.length; i++) {
-  console.log(`índice ${i}:`, numeros[i]);
+  if (numeros[i] > 2) {
+      console.log(`índice ${i}:`, numeros[i]);
+  }
 }
+
+numeros.push(6);
 
 console.log('\nfor...of:');
 for (const n of numeros) {
