@@ -2,6 +2,8 @@
 // Ejecuta con: `npx ts-node 06-integracion-api.ts`
 // Requiere Node 18+ (fetch disponible). En versiones previas instala `node-fetch`.
 
+import axios from "axios";
+
 type Post = {
   userId: number;
   id: number;
@@ -18,6 +20,13 @@ async function obtenerPosts(limit = 5): Promise<Post[]> {
   }
 
   return respuesta.json();
+}
+
+const API_URL = 'https://jsonplaceholder.typicode.com';
+
+export const obtenerPosts2 = async(limit = 5): Promise<Post[]> => {  
+  const response = await axios.get<Post[]>(`${API_URL}/posts?_limit=${limit}`);
+  return response.data;
 }
 
 async function main() {
