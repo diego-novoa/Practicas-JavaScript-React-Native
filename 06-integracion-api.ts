@@ -49,23 +49,6 @@ main();
 // Variantes:
 // - Cambia el endpoint a `/users` y muestra nombre, correo y compañía.
 
-//const users{
-  //nombre: string;
-  //correo: string;
-  //compania: string;
-
-  //async function obtenerNombres(nombre: string = "default"): Promise<string[]> {
-    //return [nombre];
-  //}//
-  //async function obtenerCorreo(correo: string = "default"): Promise<string[]> {
-    //return [correo];
-  //}//
-  //async function obtenerCompañia(compania: string = "default"): Promise<string[]> {
-    //return [compania];
-  //}//
-
-//}//
-
 interface Company {
   name: string;
 }
@@ -75,23 +58,9 @@ interface User {
   email: string;
   company?: Company;
 }
-
-async function getUsers() {
-  const response = await fetch('/users');
-  const users: User[] = await response.json();
-
-  return users.map(user => ({
-    nombre: user.name,
-    correo: user.email,
-    compania: user.company?.name ?? ''
-  }));
-}
-
 
 // - Reemplaza `fetch` por Axios y tipa la respuesta con `axios.get<Post[]>`.
 
-import axios from 'axios';
-
 interface Company {
   name: string;
 }
@@ -100,10 +69,10 @@ interface User {
   email: string;
   company?: Company;
 }
-async function getUsers(): {
+async function getUsers() {
   const { data } = await axios.get<User[]>('/users');
 
-  return data.map(user => ({
+  return data.map((user: { name: any; email: any; company: { name: any; }; }) => ({
     nombre: user.name,
     correo: user.email,
     compania: user.company?.name ?? ''
