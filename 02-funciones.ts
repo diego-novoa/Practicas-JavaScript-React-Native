@@ -25,15 +25,10 @@ const alCuadrado = procesarLista([1, 2, 3, 4], (n) => n * n);
 console.log('Cuadrados:', alCuadrado);
 
 // Variantes:
+
 // - Agrega un parámetro rest `...extras` y suma todos los argumentos.
-function sumarVarios(...numeros: number[]): number{
-  return numeros.reduce((acc, n) => acc + n, 0);
-}
 // - Implementa sobrecarga para una función `formatear(valor: string | number)`.
-function formatear(valor: string | number): string;  
 // - Cambia `procesarLista` para recibir `Promise<number>[]` y usar `Promise.all`.
-const procesarLista = (promesas: Promise<number>[]): Promise<number[]> =>
-  Promise.all(promesas);
 
 // Notas rápidas:
 // - Parámetro con valor por defecto: `saludo = 'Hola'` evita pasar siempre ese arg.
