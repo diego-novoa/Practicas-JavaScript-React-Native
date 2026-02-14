@@ -59,7 +59,7 @@ interface AsignarTarea {
   tarea: string;
 }
 
-class Persona {
+class Persona1 {
 
   documento: number = 80547597;
   nombre: string = "diego novoa";
@@ -81,17 +81,17 @@ class Persona {
   }
 }
 
-class Gerente extends Persona {
-  public sueldoGerente(): number {
+class Gerente1 extends Persona1 {
+  public sueldoGerente1(): number {
     return this.salario * 1.5;
   }
 }
 
-class Empleado extends Persona implements AsignarTarea {
+class Empleado1 extends Persona1 implements AsignarTarea {
 
   tarea: string = "";
 
-  public sueldoEmpleado(): number {
+  public sueldoEmpleado1(): number {
     return this.salario;
   }
 }
