@@ -2,6 +2,8 @@
 // Ejecuta con: `npx ts-node 06-integracion-api.ts`
 // Requiere Node 18+ (fetch disponible). En versiones previas instala `node-fetch`.
 
+import axios from "axios";
+
 type Post = {
   userId: number;
   id: number;
@@ -18,6 +20,13 @@ async function obtenerPosts(limit = 5): Promise<Post[]> {
   }
 
   return respuesta.json();
+}
+
+const API_URL = 'https://jsonplaceholder.typicode.com';
+
+export const obtenerPosts2 = async(limit = 5): Promise<Post[]> => {  
+  const response = await axios.get<Post[]>(`${API_URL}/posts?_limit=${limit}`);
+  return response.data;
 }
 
 async function main() {
@@ -39,6 +48,82 @@ main();
 
 // Variantes:
 // - Cambia el endpoint a `/users` y muestra nombre, correo y compañía.
+
+interface Company {
+  name: string;
+}
+
+interface User {
+  name: string;
+  email: string;
+  company?: Company;
+}
+
 // - Reemplaza `fetch` por Axios y tipa la respuesta con `axios.get<Post[]>`.
+
+interface Company {
+  name: string;
+}
+interface User {
+  name: string;
+  email: string;
+  company?: Company;
+}
+async function getUsers() {
+  const { data } = await axios.get<User[]>('/users');
+
+  return data.map((user: { name: any; email: any; company: { name: any; }; }) => ({
+    nombre: user.name,
+    correo: user.email,
+    compania: user.company?.name ?? ''
+  }));
+}
+
 // - Encadena otro `fetch` usando el `userId` para obtener datos del autor.
+
+interface Company {
+  name: string;
+}
+
+interface User {
+  id: number;
+  name: string;
+  email: string;
+  company?: Company;
+}
+
+interface Author {
+  id: number;
+  username: string;
+  bio: string;
+}
+
+async function getUsersWithAuthor() {
+  const usersResponse = await fetch('/users');
+  const users: User[] = await usersResponse.json();
+
+  const result = await Promise.all(
+    users.map(async (user) => {
+      const authorResponse = await fetch(`/authors/${user.id}`);
+      const author: Author = await authorResponse.json();
+
+      return {
+        nombre: user.name,
+        correo: user.email,
+        compania: user.company?.name ?? '',
+        autor: {
+          username: author.username,
+          bio: author.bio
+        }
+      };
+    })
+  );
+
+  return result;
+}
+ 
+getUsersWithAuthor()
+  .then(data => console.log(data))
+  .catch(err => console.error(err));
+
 
