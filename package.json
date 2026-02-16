@@ -14,11 +14,19 @@
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
-    "@types/node": "^25.2.0",
+    "@types/node": "^25.2.3",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
   },
   "dependencies": {
     "axios": "^1.13.5"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diego-novoa/Practicas-JavaScript-React-Native.git"
+  },
+  "bugs": {
+    "url": "https://github.com/diego-novoa/Practicas-JavaScript-React-Native/issues"
+  },
+  "homepage": "https://github.com/diego-novoa/Practicas-JavaScript-React-Native#readme"
 }
