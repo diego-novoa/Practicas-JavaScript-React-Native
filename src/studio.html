@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Studio Cards | TypeScript</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="layout">
+      <nav class="site-nav" aria-label="Navegacion principal">
+        <a href="./index.html" data-page="index.html">Inicio + API</a>
+        <a href="./studio.html" data-page="studio.html">Studio Cards</a>
+        <a href="./terminal.html" data-page="terminal.html">Terminal TS</a>
+      </nav>
+
+      <header class="hero">
+        <p class="tag">TypeScript Studio</p>
+        <h1>Studio Cards de ejercicios</h1>
+        <p class="subtitle">
+          Revisa cada tema y abre su snippet directo en la terminal para
+          practicar.
+        </p>
+      </header>
+
+      <section class="panel">
+        <h2>Cards de estudio</h2>
+        <p class="panel-subtitle">
+          Cada tarjeta resume un archivo y te envia a la terminal con el
+          codigo precargado.
+        </p>
+        <section id="exercisesContainer" class="studio-grid"></section>
+      </section>
+    </main>
+
+    <script type="module" src="../dist-web/app.js"></script>
+  </body>
+</html>

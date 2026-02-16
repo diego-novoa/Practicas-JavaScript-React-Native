@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Studio TypeScript + HTML</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="layout">
+      <nav class="site-nav" aria-label="Navegacion principal">
+        <a href="./index.html" data-page="index.html">Inicio + API</a>
+        <a href="./studio.html" data-page="studio.html">Studio Cards</a>
+        <a href="./terminal.html" data-page="terminal.html">Terminal TS</a>
+      </nav>
+
+      <header class="hero">
+        <p class="tag">TypeScript Studio</p>
+        <h1>Inicio del proyecto web</h1>
+        <p class="subtitle">
+          Navega por secciones separadas: tarjetas de estudio y terminal de
+          TypeScript en paginas dedicadas.
+        </p>
+        <div class="hero-actions">
+          <a class="nav-btn" href="./studio.html">Ir a Studio Cards</a>
+          <a class="nav-btn" href="./terminal.html">Ir a Terminal TS</a>
+        </div>
+      </header>
+
+      <section class="panel">
+        <h2>Comandos para levantar el proyecto</h2>
+        <p class="panel-subtitle">
+          Ejecuta estos comandos desde la raiz del proyecto.
+        </p>
+        <pre class="command-block"><code>npm install
+npm run build:web
+npm run serve:web
+# Abrir: http://localhost:5500/src/index.html
+
+# Desarrollo (2 terminales)
+npm run watch:web
+npm run serve:web
+
+# Ejecutar un ejercicio TS por consola
+npm run ts -- 06-integracion-api.ts</code></pre>
+      </section>
+
+      <section class="panel">
+        <h2>Integracion API (map)</h2>
+        <p class="panel-subtitle">
+          Esta seccion mantiene tu practica de fetch y render de tarjetas con
+          usuarios reales.
+        </p>
+        <button id="reloadButton" type="button">Recargar usuarios API</button>
+        <section aria-live="polite" id="status" class="status">
+          Cargando informacion...
+        </section>
+        <section id="usersContainer" class="grid"></section>
+      </section>
+
+    </main>
+
+    <script type="module" src="../dist-web/app.js"></script>
+  </body>
+</html>

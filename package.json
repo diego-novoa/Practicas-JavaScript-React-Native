@@ -7,6 +7,9 @@
     "start": "npm run ts -- 01-variables.ts",
     "ts": "ts-node",
     "build": "tsc",
+    "build:web": "tsc -p tsconfig.web.json",
+    "watch:web": "tsc -p tsconfig.web.json --watch",
+    "serve:web": "npx http-server . -p 5500 -c-1",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
