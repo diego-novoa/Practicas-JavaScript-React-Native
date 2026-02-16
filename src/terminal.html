@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terminal TS | TypeScript</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="layout">
+      <nav class="site-nav" aria-label="Navegacion principal">
+        <a href="./index.html" data-page="index.html">Inicio + API</a>
+        <a href="./studio.html" data-page="studio.html">Studio Cards</a>
+        <a href="./terminal.html" data-page="terminal.html">Terminal TS</a>
+      </nav>
+
+      <header class="hero">
+        <p class="tag">TypeScript Studio</p>
+        <h1>Terminal TypeScript</h1>
+        <p class="subtitle">
+          Editor con tabulacion, numeracion de lineas y ejecucion directa de
+          codigo TS.
+        </p>
+      </header>
+
+      <section class="panel">
+        <h2>Consola embebida</h2>
+        <p class="panel-subtitle">
+          Puedes entrar desde Studio Cards con un snippet precargado por ruta.
+        </p>
+        <div class="console-layout">
+          <label class="editor-label" for="tsEditor">Editor TS</label>
+          <div class="editor-shell">
+            <pre id="lineNumbers" class="line-numbers" aria-hidden="true">1</pre>
+            <textarea id="tsEditor" spellcheck="false"></textarea>
+          </div>
+          <div class="console-actions">
+            <button id="runCodeButton" type="button">Ejecutar codigo</button>
+            <button id="clearConsoleButton" type="button" class="ghost">
+              Limpiar consola
+            </button>
+          </div>
+          <p class="editor-hint">
+            Atajo: <code>Ctrl + Enter</code> para ejecutar. Usa
+            <code>Tab</code> para indentar.
+          </p>
+          <label class="editor-label" for="terminalOutput">Salida</label>
+          <pre id="terminalOutput" class="terminal-output"></pre>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="../dist-web/app.js"></script>
+  </body>
+</html>
