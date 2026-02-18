@@ -1,37 +1,37 @@
-interface User {
-  id: number;
-  name: string;
-  email: string;
-  [key: string]: any;
+// 1- defino la interfaz del usuario
+interface user {
+    id: number;
+    name: string;
+    email: string;
+    [key: string]: any
 }
-
-async function loadUsers(): Promise<void> {
-  try {
+    // 2- defino la funcion loadUsers
+async function loadUsers(): Promise<void>{
+    // 3- hago la peticion a la api
     const response = await fetch('https://jsonplaceholder.typicode.com/users');
-    const users: User[] = await response.json(); // Guarda la data completa en const users
+    // 4- convierto la respuesta a json
+    const users: user[] = await response.json();
+    // 5- Obtener los primeros cinco usuarios
+    const firstFiveUsers = users.slice(0, 5);
+    // 6- llamar renderUsers 
+    renderUsers(firstFiveUsers);
+    // 7- funcion renderUsers
+    function renderUsers(users: user[]): void {
+    // 8- Buscar el contenedor en el HTML
+        const container = document.getElementById('user-container');
+        //Busca un elemento con id "user-list" en el HTML.
+        if (!container) return;
+    // 9- Renderizar los usuarios
+        container.innerHTML = users
+          .map(user => `
+           <div>
+            <h3>${user.name}</h3>
+            <p>${user.email}</p>
+           </div>`)
+          .join('');
 
-    const firstFive: User[] = users.slice(0, 5); // Crea const firstFive = users.slice(0, 5)
+    }
+    // 10- llamada inicial
+    loadUsers();
 
-    renderUsers(firstFive); // Llama renderUsers(firstFive)
-  } catch (error) {
-    console.error('Error cargando usuarios:', error);
-  }
 }
-
-function renderUsers(users: User[]): void {
-  const container = document.getElementById('user-list');
-
-  if (!container) return;
-
-  container.innerHTML = users
-    .map(user => `
-      <div>
-        <h3>${user.name}</h3>
-        <p>${user.email}</p>
-      </div>
-    `)
-    .join('');
-}
-
-// Llamada inicial
-loadUsers();
