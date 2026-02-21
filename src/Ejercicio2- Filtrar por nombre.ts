@@ -4,7 +4,6 @@ interface Usuario {
   email: string;
 }
 
-// Arreglo base de usuarios
 const usuarios: Usuario[] = [
   { id: 1, nombre: "Juan Pérez", email: "juan@email.com" },
   { id: 2, nombre: "María López", email: "maria@email.com" },
@@ -12,11 +11,9 @@ const usuarios: Usuario[] = [
   { id: 4, nombre: "Ana Torres", email: "ana@email.com" }
 ];
 
-// Referencias al DOM
 const searchInput = document.getElementById("searchInput") as HTMLInputElement;
 const userList = document.getElementById("userList") as HTMLUListElement;
 
-// Función para renderizar usuarios
 function renderUsuarios(lista: Usuario[]): void {
   userList.innerHTML = "";
 
@@ -27,10 +24,8 @@ function renderUsuarios(lista: Usuario[]): void {
   });
 }
 
-// Mostrar todos al inicio
 renderUsuarios(usuarios);
 
-// Escuchar evento input
 searchInput.addEventListener("input", () => {
   const texto = searchInput.value.toLowerCase();
 

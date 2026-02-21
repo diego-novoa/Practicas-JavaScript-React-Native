@@ -19,7 +19,7 @@ async function obtenerUsuarios(url: string): Promise<void> {
 
     const datos: Usuario[] = await respuesta.json();
 
-    mensaje.textContent = "Datos cargados correctamente ✅";
+    mensaje.textContent = "";
     console.log("Usuarios:", datos);
 
   } catch (error: unknown) {
@@ -27,8 +27,7 @@ async function obtenerUsuarios(url: string): Promise<void> {
       console.error("Detalle técnico:", error.message);
     }
 
-    mensaje.textContent =
-      "❌ Ocurrió un error al obtener los datos. Intenta nuevamente más tarde.";
+    mensaje.textContent = "❌ Ocurrió un error al obtener los datos. Intenta nuevamente más tarde.";
   }
 }
 
