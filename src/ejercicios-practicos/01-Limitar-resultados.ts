@@ -30,7 +30,7 @@ type user = {
 	string: string;
 }
 
-const loadUsers = async (): Promise<void> => {
+const loadUsers1 = async (): Promise<void> => {
 	// Hace una petición a la API y espera la respuesta.
 	const response = await fetch('https://jsonplaceholder.typicode.com/users');
 	// Convierte la respuesta a JSON y obtiene todos los usuarios.
@@ -41,4 +41,4 @@ const loadUsers = async (): Promise<void> => {
 	renderUsers(firstFive);
 }
 // Ejecutar la función.
-loadUsers();
+loadUsers1();
