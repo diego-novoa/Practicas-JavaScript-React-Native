@@ -560,4 +560,3 @@ initTerminalSection();
 
 export {};
 
-// commit temporal para subir a GitHub

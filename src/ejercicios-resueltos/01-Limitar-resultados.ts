@@ -43,4 +43,3 @@ const loadUsers1 = async (): Promise<void> => {
 // Ejecutar la función.
 loadUsers1();
 
-// commit temporal para subir a GitHub
